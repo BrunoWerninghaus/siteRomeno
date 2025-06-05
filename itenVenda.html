@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item à Venda | Romenno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="inicio.html">Romenno</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-5">
+        <div id="item-content" class="mx-auto" style="max-width: 500px;">
+            <!-- Conteúdo dinâmico será inserido aqui -->
+        </div>
+        <div class="text-center mt-4">
+            <a href="catalogo.html" class="btn btn-outline-light">Voltar ao Catálogo</a>
+        </div>
+    </div>
+    <footer class="mt-5 text-center text-muted">
+        &copy; 2024 Romenno. Todos os direitos reservados.
+    </footer>
+    <script>
+        // IDs dos itens devem bater com os usados no catálogo.html
+        const itens = [
+            // Magias
+            {
+                id: "101",
+                nome: "Bola de Fogo",
+                descricao: "Uma explosão flamejante que causa dano em área. Ideal para eliminar múltiplos inimigos.",
+                preco: "R$ 150",
+                imagem: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "102",
+                nome: "Cura Leve",
+                descricao: "Recupere pontos de vida instantaneamente. Essencial para aventureiros cautelosos.",
+                preco: "R$ 80",
+                imagem: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "103",
+                nome: "Raio Congelante",
+                descricao: "Lança um raio de gelo que pode paralisar o inimigo temporariamente.",
+                preco: "R$ 120",
+                imagem: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "104",
+                nome: "Escudo Arcano",
+                descricao: "Cria uma barreira mágica que absorve dano por tempo limitado.",
+                preco: "R$ 100",
+                imagem: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "105",
+                nome: "Invisibilidade",
+                descricao: "Torne-se invisível por alguns minutos, perfeito para infiltrações.",
+                preco: "R$ 200",
+                imagem: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "106",
+                nome: "Toque Vampírico",
+                descricao: "Rouba vida do inimigo e cura o conjurador.",
+                preco: "R$ 170",
+                imagem: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+            },
+            // Simpatias
+            {
+                id: "201",
+                nome: "Simpatia do Amor",
+                descricao: "Atraia um novo amor ou fortaleça seu relacionamento com esta poderosa simpatia.",
+                preco: "R$ 50",
+                imagem: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "202",
+                nome: "Simpatia da Prosperidade",
+                descricao: "Abra caminhos para o sucesso financeiro e conquiste prosperidade em sua vida.",
+                preco: "R$ 60",
+                imagem: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "203",
+                nome: "Simpatia para Saúde",
+                descricao: "Fortaleça sua saúde e afaste energias negativas com esta simpatia especial.",
+                preco: "R$ 45",
+                imagem: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "204",
+                nome: "Simpatia para Sorte",
+                descricao: "Aumente sua sorte em jogos, negócios e na vida pessoal.",
+                preco: "R$ 40",
+                imagem: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "205",
+                nome: "Simpatia para Proteção",
+                descricao: "Afaste inveja, mau-olhado e energias negativas com esta simpatia de proteção.",
+                preco: "R$ 55",
+                imagem: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "206",
+                nome: "Simpatia para Emprego",
+                descricao: "Encontre novas oportunidades de trabalho e destaque-se em entrevistas.",
+                preco: "R$ 50",
+                imagem: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80"
+            },
+            // Itens Místicos & Talismãs
+            {
+                id: "301",
+                nome: "Amuleto de Proteção",
+                descricao: "Proteja-se contra energias negativas e inveja com este poderoso amuleto consagrado.",
+                preco: "R$ 70",
+                imagem: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "302",
+                nome: "Talismã da Sorte",
+                descricao: "Aumente sua sorte em jogos, negócios e relacionamentos com este talismã exclusivo.",
+                preco: "R$ 90",
+                imagem: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "303",
+                nome: "Pingente Energizado",
+                descricao: "Pingente preparado para atrair boas energias e afastar o mau-olhado.",
+                preco: "R$ 60",
+                imagem: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "304",
+                nome: "Cristal de Quartzo",
+                descricao: "Utilizado para limpeza energética e equilíbrio espiritual. Ideal para meditação.",
+                preco: "R$ 55",
+                imagem: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "305",
+                nome: "Pulseira de Olho Grego",
+                descricao: "A pulseira do olho grego é símbolo de proteção contra o mau-olhado e inveja.",
+                preco: "R$ 65",
+                imagem: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: "306",
+                nome: "Incenso de Purificação",
+                descricao: "Purifique ambientes e promova paz e harmonia com incensos especiais energizados.",
+                preco: "R$ 30",
+                imagem: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80"
+            }
+        ];
+        function getIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        function renderItem() {
+            const id = getIdFromUrl();
+            const item = itens.find(i => i.id === id);
+
+            const contentDiv = document.getElementById('item-content');
+            if (!item) {
+                contentDiv.innerHTML = `
+                <div class="alert alert-warning text-center">
+                    Item não encontrado.<br>
+                    <a href="catalogo.html" class="btn btn-sm btn-primary mt-2">Voltar ao Catálogo</a>
+                </div>
+            `;
+                return;
+            }
+
+            contentDiv.innerHTML = `
+            <div class="card shadow-sm p-3" style="background:#2e3650;">
+                <img src="${item.imagem}" class="card-img-top mb-3 rounded" alt="${item.nome}">
+                <div class="card-body">
+                    <h2 class="card-title section-title text-center mb-3">${item.nome}</h2>
+                    <p class="card-text mb-4 text-center">${item.descricao}</p>
+                    <div class="text-center mb-3">
+                        <span class="badge badge-price" style="background:#3a2066;color:#fff;font-size:1.2rem;min-width:90px;">${item.preco}</span>
+                    </div>
+                    <div class="text-center">
+                        <button id="add-carrinho" class="btn btn-primary">Quero este item</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+            // Adiciona evento ao botão
+            document.getElementById('add-carrinho').onclick = function () {
+                addToCart(item);
+            };
+        }
+
+        function addToCart(item) {
+            // Recupera carrinho do localStorage ou cria novo
+            let carrinho = [];
+            if (localStorage.getItem('carrinho')) {
+                carrinho = JSON.parse(localStorage.getItem('carrinho'));
+            }
+            // Adiciona o item (pode adicionar múltiplos iguais)
+            carrinho.push({
+                id: item.id,
+                nome: item.nome,
+                preco: item.preco,
+                imagem: item.imagem
+            });
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            // Feedback ao usuário
+            alert('Item adicionado ao carrinho!');
+        }
+
+        renderItem();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
